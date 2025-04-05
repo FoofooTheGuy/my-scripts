@@ -4,7 +4,7 @@
 #run this in your folder full of loose audio files
 #i cant believe i did half of my library manually so thank me later
 #it will sort them like this:
-#/music/
+#.../music/
 #	<performer/>
 #		<album/>
 #			<position>. <track> - <performer>
