@@ -21,6 +21,6 @@ for entry in *.flac; do #list all stuff with *.flac in dir; you can probably get
 		echo "$entry" "->" "${performer}/${album}/${position}. ${track} - ${performer}.flac"
 		echo 
 		mkdir -p "${performer}/${album}" #make tree
-		mv "$entry" "${performer}/${album}/${position} ${track} - ${performer}.flac"
+		mv "$entry" "${performer}/${album}/${position}. ${track} - ${performer}.flac"
 	fi
 done
