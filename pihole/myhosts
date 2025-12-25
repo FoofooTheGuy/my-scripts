@@ -1,0 +1,297 @@
+# Title: myhosts
+#
+# This hosts file is my host list for stuff that still slips through
+#
+# Most are copied from this list:
+# https://d3ward.github.io/toolz/adblock
+# ===============================================================
+
+127.0.0.1 localhost
+127.0.0.1 localhost.localdomain
+127.0.0.1 local
+255.255.255.255 broadcasthost
+::1 localhost
+::1 ip6-localhost
+::1 ip6-loopback
+fe80::1%lo0 localhost
+ff00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+0.0.0.0 0.0.0.0
+
+# Custom host records are listed here.
+
+
+# End of custom host records.
+# Start myhosts
+
+#=====================================
+# Title: My Hosts
+
+# Ads
+
+0.0.0.0 cdn.pubfuture-ad.com
+0.0.0.0 analyticsengine.s3.amazonaws.com
+0.0.0.0 analytics.s3.amazonaws.com
+0.0.0.0 mediavisor.doubleclick.net
+0.0.0.0 afs.googlesyndication.com
+
+# Analytics
+
+0.0.0.0 api.mouseflow.com
+0.0.0.0 tools.mouseflow.com
+0.0.0.0 cdn-test.mouseflow.com
+0.0.0.0 api.luckyorange.com
+0.0.0.0 realtime.luckyorange.com
+0.0.0.0 cdn.luckyorange.com
+0.0.0.0 w1.luckyorange.com
+0.0.0.0 adm.hotjar.com
+0.0.0.0 identify.hotjar.com
+0.0.0.0 insights.hotjar.com
+0.0.0.0 surveys.hotjar.com
+0.0.0.0 freshmarketer.com
+0.0.0.0 claritybt.freshmarketer.com
+0.0.0.0 fwtracks.freshmarketer.com
+
+# Error Trackers
+
+0.0.0.0 api.bugsnag.com
+0.0.0.0 app.bugsnag.com
+0.0.0.0 browser.sentry-cdn.com
+0.0.0.0 app.getsentry.com
+
+# Social Trackers
+
+0.0.0.0 events.reddit.com
+0.0.0.0 ads-api.tiktok.com
+0.0.0.0 ads-sg.tiktok.com
+0.0.0.0 analytics-sg.tiktok.com
+0.0.0.0 business-api.tiktok.com
+0.0.0.0 log.byteoversea.com
+
+# Mix
+
+0.0.0.0 udc.yahoo.com
+0.0.0.0 udcm.yahoo.com
+0.0.0.0 log.fc.yahoo.com
+0.0.0.0 adtech.yahooinc.com
+0.0.0.0 extmaps-api.yandex.net
+0.0.0.0 adfstat.yandex.ru
+0.0.0.0 metrika.yandex.ru
+0.0.0.0 offerwall.yandex.net
+0.0.0.0 adfox.yandex.ru
+
+# OEMs
+
+0.0.0.0 bdapi-ads.realmemobile.com
+0.0.0.0 bdapi-in-ads.realmemobile.com
+0.0.0.0 ck.ads.oppomobile.com
+0.0.0.0 click.oneplus.cn
+0.0.0.0 api-adservices.apple.com
+0.0.0.0 books-analytics-events.apple.com
+0.0.0.0 notes-analytics-events.apple.com
+0.0.0.0 data.mistat.india.xiaomi.com
+0.0.0.0 data.mistat.rus.xiaomi.com
+0.0.0.0 metrics.data.hicloud.com
+0.0.0.0 metrics2.data.hicloud.com
+0.0.0.0 grs.hicloud.com
+0.0.0.0 logservice.hicloud.com
+0.0.0.0 logservice1.hicloud.com
+0.0.0.0 logbak.hicloud.com
+0.0.0.0 samsung-com.112.2o7.net
+0.0.0.0 analytics-api.samsunghealthcn.com
+
+# Other Domains
+
+0.0.0.0 app-analytics-services.com
+0.0.0.0 icon-uap.iads.unity3d.com
+0.0.0.0 mtrack.mtgglobals.com
+0.0.0.0 iadcontent.apple.com
+0.0.0.0 iadsdk.apple.com
+0.0.0.0 logs.roku.com
+0.0.0.0 events.ads.vungle.com
+0.0.0.0 casalemedia.com
+0.0.0.0 indexww.com
+0.0.0.0 mountain.com
+0.0.0.0 scorecardresearch.com
+0.0.0.0 adsrvr.org
+0.0.0.0 onetrust.io
+0.0.0.0 turnip.cdn.turner.com
+0.0.0.0 firebaselogging-pa.googleapis.com
+0.0.0.0 us-east-1-ads.superawesome.tv
+0.0.0.0 iads.unity3d.com
+0.0.0.0 mtgglobals.com
+0.0.0.0 qymkbmjssadw.top
+0.0.0.0 v.vfgta.com
+0.0.0.0 izeeto.com
+0.0.0.0 ethequaldouter.com
+0.0.0.0 hoktrips.com
+0.0.0.0 otoadom.com
+0.0.0.0 megacot.com
+0.0.0.0 lwnbts.com
+0.0.0.0 ark.tubi.video
+0.0.0.0 rndskittytor.com
+0.0.0.0 record.revmasters.com
+0.0.0.0 skylindo.com
+0.0.0.0 analytics-ingestion.production-public.tubi.io
+0.0.0.0 keltaidrum.com
+0.0.0.0 oarsoathaihoamt.net
+0.0.0.0 shakingtacklingunpeeled.com
+0.0.0.0 yawltelurgy.shop
+0.0.0.0 ghabovethec.info
+0.0.0.0 coosync.com
+0.0.0.0 ukankingwithea.com
+0.0.0.0 waisheph.com
+0.0.0.0 deliriamorula.shop
+0.0.0.0 phahifoobsie.net
+0.0.0.0 joaadnaywgfdmx.com
+0.0.0.0 hologydenoughta.info
+0.0.0.0 tearoomzebus.top
+0.0.0.0 blurtdocetic.shop
+0.0.0.0 weftybaggage.top
+0.0.0.0 lanyinadiingsin.com
+0.0.0.0 fampeshail.net
+0.0.0.0 datatechonert.com
+0.0.0.0 reshowsvole.shop
+0.0.0.0 cg.roudpiously.top
+0.0.0.0 captorbaryton.com
+0.0.0.0 oceanicdreamcove.com
+0.0.0.0 dvktylwetuxvrbu.com
+0.0.0.0 ipv6.icanhazip.com
+0.0.0.0 ipify.org
+0.0.0.0 seeip.org
+0.0.0.0 icanhazip.com
+0.0.0.0 websignupbo.acrpoker.eu
+0.0.0.0 osfultrbriolenai.info
+0.0.0.0 zeusadx.xml.ak-is2.net
+0.0.0.0 xml.zeusadx.com
+0.0.0.0 mpsnare.iesnare.com
+0.0.0.0 digisignup.acrpoker.eu
+0.0.0.0 cam-maus.info
+0.0.0.0 vrkonefd.buzz
+0.0.0.0 ghajini-emtftw1o.lol
+0.0.0.0 akumachi.com
+0.0.0.0 tealeryinsurer.top
+0.0.0.0 boneteunfixt.shop
+0.0.0.0 realprize.com
+0.0.0.0 noavoahevugrib.com
+0.0.0.0 first.eshkol.one
+0.0.0.0 bedamnrankled.top
+0.0.0.0 grecmaishish.com
+0.0.0.0 stufaumsas.com
+0.0.0.0 srv.dalysv.com
+0.0.0.0 boobausauhipsa.net
+0.0.0.0 affluentarmyequator.com
+0.0.0.0 mutablebackcap.shop
+0.0.0.0 premilkyway.com
+0.0.0.0 dietythraves.top
+0.0.0.0 zapsauwhouteeks.com
+0.0.0.0 vplxmpagryjvl.space
+0.0.0.0 service-ad-image-ga.prd.pluto.tv
+0.0.0.0 nimbusgrovelodge.com
+0.0.0.0 al.jowleratocia.top
+0.0.0.0 www.linkbux.com
+0.0.0.0 torticero.com
+0.0.0.0 team.offsetshops.com
+0.0.0.0 tk6if76q.ab1n.net
+0.0.0.0 s.allureanews.com
+0.0.0.0 pixelriverforge.com
+0.0.0.0 xf.strodecheese.top
+0.0.0.0 randnquacked.shop
+0.0.0.0 solarcyclonesky.com
+0.0.0.0 es.janitoramtrac.com
+0.0.0.0 smalltoysome.shop
+0.0.0.0 cangueunsheet.top
+0.0.0.0 zucoagorsout.com
+0.0.0.0 bb2r.com
+0.0.0.0 psoroumukr.com
+0.0.0.0 na.latedarabesk.com
+0.0.0.0 riostan.com
+0.0.0.0 ptagroardoulevy.net
+0.0.0.0 my.boruftuiov.com
+0.0.0.0 naupsithizeekee.com
+0.0.0.0 animeplaynow.com
+0.0.0.0 girlgamingempire.org
+0.0.0.0 itogowf.shop
+0.0.0.0 land-getprivacy.info
+0.0.0.0 safety-privacy.pro
+0.0.0.0 nemppa.com
+0.0.0.0 record.betonlineaffiliates.ag
+0.0.0.0 pubtrky.com
+0.0.0.0 acscdn.com
+0.0.0.0 adserver.kidoz.net
+0.0.0.0 amnimpukinaud.com
+0.0.0.0 apokreaboil.shop
+0.0.0.0 ou.ahongbityite.com
+0.0.0.0 serfism.bassaqueued.top
+0.0.0.0 flative.ascelliiconize.top
+0.0.0.0 impressions-ico-dt.b-cdn.net
+0.0.0.0 cdn-mnd.b-cdn.net
+0.0.0.0 www.playerhq.co
+0.0.0.0 to.rezply.com
+0.0.0.0 my.toruftuiov.com
+0.0.0.0 jwalkin.com
+0.0.0.0 go.kwlnds.com
+0.0.0.0 generateai.club
+0.0.0.0 welionads.g2afse.com
+0.0.0.0 nectsideaments.com
+0.0.0.0 strangervideochat.tv
+0.0.0.0 amt3.com
+0.0.0.0 mt.binmanoboles.com
+0.0.0.0 rapidfoxengine.com
+0.0.0.0 solidlypall.shop
+0.0.0.0 molderywhishts.top
+0.0.0.0 yaguazaderail.shop
+0.0.0.0 stodgybiaxial.shop
+0.0.0.0 pibgornunknots.shop
+0.0.0.0 ep1.adtrafficquality.google
+0.0.0.0 cdn.ampproject.org
+0.0.0.0 chll.site
+0.0.0.0 click-v4.junclikrmedi.com
+0.0.0.0 gy2go.click
+0.0.0.0 kullanicaickle.shop
+0.0.0.0 gauplay.xyz
+0.0.0.0 paupsoborofoow.net
+0.0.0.0 fxp1.short.gy
+0.0.0.0 macsystem.best
+0.0.0.0 mac-stores.com
+0.0.0.0 lutewayredug.shop
+0.0.0.0 p2yn.com
+0.0.0.0 bvtpk.com
+0.0.0.0 wz.birthaslaver.com
+0.0.0.0 archipelagosaidpre.com
+0.0.0.0 boredomcuff.com
+0.0.0.0 leafboyaggress.shop
+0.0.0.0 disprovefacilityjolt.com
+0.0.0.0 ludicroustabletvelocity.com
+0.0.0.0 advertisinglanding1.com
+0.0.0.0 aferwivel.co.in
+0.0.0.0 ascentomegaunsterile.com
+0.0.0.0 ads.mozilla.org
+0.0.0.0 murgakamis.top
+0.0.0.0 limeiptv.to
+0.0.0.0 www.slushy.com
+0.0.0.0 freditorsuberra.com
+0.0.0.0 dsgszujtdzlea.online
+0.0.0.0 usrpubtrk.com
+0.0.0.0 graph.facebook.com
+0.0.0.0 portal.fb.com
+0.0.0.0 barmanonymity.shop
+0.0.0.0 hurlybegaud.top
+0.0.0.0 ryesdentist.top
+0.0.0.0 misjoin.hcfpiss.top
+0.0.0.0 tankerscentrer.shop
+0.0.0.0 embercascademaple.com
+0.0.0.0 qj.listersdater.cfd
+0.0.0.0 upflowsshiitic.click
+0.0.0.0 pollees.lettishusun.shop
+0.0.0.0 design.sloganbauge.top
+0.0.0.0 op.numnahphineas.com
+0.0.0.0 digital.ppwpn.com
+0.0.0.0 kettledroopingcontinuation.com
+0.0.0.0 press-continue.k2nft0uzrckf.top
+0.0.0.0 mz2v.com
+0.0.0.0 meta.graph.meta.com
+0.0.0.0 graph.instagram.com
