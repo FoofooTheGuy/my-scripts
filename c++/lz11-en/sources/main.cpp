@@ -1,4 +1,4 @@
-// decompress LZ11 compressed file
+// compress file with LZ11
 #include <iostream>
 #include <fstream>
 #include <vector>
