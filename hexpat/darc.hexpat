@@ -44,6 +44,4 @@ file darc @ 0;
     
     std::string::NullString16 file_name @ sizeof(header) + (sizeof(table_entry) * entry_count) + offset;
     std::print("file #{}: {}", i, file_name);
-}*/name);
-}*/::print("file #{}: {}", i, file_name);
 }*/
