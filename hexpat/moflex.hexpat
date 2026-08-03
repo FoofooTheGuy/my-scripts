@@ -10,7 +10,7 @@ import std.io;
 */
 fn measure_packets(u64 addr) {
     u64 size = 0;
-    std::print("{:X}", addr);
+    //std::print("{:X}", addr);
     while(1) {
         if(addr >= std::mem::size()) { // fail safe in case you make it too big
             break;
@@ -32,7 +32,7 @@ fn measure_packets(u64 addr) {
 fn count_blocks() {
     u64 count = 0;
     u64 addr = 0;
-    std::print("{:X}", addr);
+    //std::print("{:X}", addr);
     while(1) {
         if(addr >= std::mem::size()) { // fail safe in case you make it too big
             break;
@@ -99,7 +99,7 @@ struct header {
     be type::Hex<u16> Magic [[comment("be16 0x4C32")]];
     be u16 unk0 [[comment("Changes depending on timestamp?")]];
     be u64 Timestamp [[comment("be64 timestamp(microseconds)")]];
-    be u16 block_size [[name("Align?"), comment("block_size - 1")]];
+    be u16 block_size [[name("Align?"), comment("block size - 1")]];
     descriptor descriptors[while($[$] != type::end_of_list)];
     descriptor end_of_list_descriptor [[comment("The descriptor marking the list's end")]];
     u8 flags;
@@ -112,6 +112,6 @@ struct chunk {
 
 u64 block_count = count_blocks();
 
-std::print("blocks: {:}", block_count);
+std::print("Number of blocks: {:}", block_count);
 
 chunk blocks[block_count] @ 0x00;
