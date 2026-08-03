@@ -99,7 +99,7 @@ struct header {
     be type::Hex<u16> Magic [[comment("be16 0x4C32")]];
     be u16 unk0 [[comment("Changes depending on timestamp?")]];
     be u64 Timestamp [[comment("be64 timestamp(microseconds)")]];
-    be u16 block_size [[name("Align?"), comment("block size - 1")]];
+    be u16 block_size [[name("Alignment"), comment("0x7FF")]];
     descriptor descriptors[while($[$] != type::end_of_list)];
     descriptor end_of_list_descriptor [[comment("The descriptor marking the list's end")]];
     u8 flags;
