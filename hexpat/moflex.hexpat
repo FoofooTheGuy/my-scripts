@@ -57,6 +57,14 @@ enum descriptor_type : u8 {
     data,
 };
 
+// I'm just guessing lol
+enum packet_type : u8 {
+    unk0 = 0x80, // type, length
+    unk1 = 0xB6, // type, u32, u8[7]?
+    unk2 = 0xBA, // type, u32, length?, u8
+    unk3 = 0xF6, // initial packet? type, u32, 
+};
+
 struct video_descriptor {
     be u8 streamIndex;
     be u8 codecID;
