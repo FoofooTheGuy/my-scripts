@@ -1,3 +1,4 @@
+#pragma description Mobiclip MoFlex for CTR
 #pragma loop_limit 0xFFFFFFFF
 
 import type.base;
@@ -111,6 +112,7 @@ struct sync_block_header {
 struct block_header {
     if((std::mem::read_unsigned($, 2, std::mem::Endian::Big) == 0x4C32)) {
         sync_block_header sync_block_head;
+        //expected_block_size = (sync_block_header.block_size + 1);
     }
     else {
         be u8 flags; // Non-sync block, as per 
