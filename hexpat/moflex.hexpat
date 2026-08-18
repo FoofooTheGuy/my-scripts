@@ -49,7 +49,7 @@ fn count_blocks() {
     return count;
 };
 
-enum type : u8 {
+enum descriptor_type : u8 {
     end_of_list,
     video,
     audio,
@@ -86,14 +86,14 @@ struct data_descriptor {
 };
 
 struct descriptor {
-    type type;
-    if (type != type::end_of_list) {
+    descriptor_type type;
+    if (type != descriptor_type::end_of_list) {
         be u8 size;
         match(type) {
-            (type::video): video_descriptor payload [[comment("video payload")]];
-            (type::audio): audio_descriptor payload [[comment("audio payload")]];
-            (type::video_with_layout): video_with_layout_descriptor payload [[comment("video with layout payload")]];
-            (type::data): data_descriptor payload [[comment("data payload (used for seek table at stream index 2)")]];
+            (descriptor_type::video): video_descriptor payload [[comment("video payload")]];
+            (descriptor_type::audio): audio_descriptor payload [[comment("audio payload")]];
+            (descriptor_type::video_with_layout): video_with_layout_descriptor payload [[comment("video with layout payload")]];
+            (descriptor_type::data): data_descriptor payload [[comment("data payload (used for seek table at stream index 2)")]];
         }
     }
 };
@@ -103,12 +103,12 @@ struct sync_block_header {
     be type::Hex<u16> ts_hash [[name("Timestamp hash"), comment("be16 CRC-16 with polynomial 0x0001 (a bare shift/feedback LFSR), init 0, XOR-out 0xAAAA")]];
     be u64 Timestamp [[comment(std::format("be64 timestamp(microseconds)\nHash: 0x{:X}", sync_check($)))]];
     be u16 block_size [[name("Block length"), comment("Normally 2047 (0x7FF)")]];
-    descriptor descriptors[while($[$] != type::end_of_list)];
+    descriptor descriptors[while($[$] != descriptor_type::end_of_list)];
     descriptor end_of_list_descriptor [[comment("The descriptor marking the list's end")]];
     be u8 flags;
 };
 
-struct block_header {
+struct block_data {
     if((std::mem::read_unsigned($, 2, std::mem::Endian::Big) == 0x4C32)) {
         sync_block_header sync_block_head [[name("Sync block header")]];
         last_sync_size = (sync_block_head.block_size + 1);
@@ -116,13 +116,21 @@ struct block_header {
     be u8 flags [[comment("Seems to increase by 4 at each sync block")]];
 };
 
-struct block_data {
-    block_header block;
-    u8 packets[last_sync_size - sizeof(block)];
+struct packet {
+    be u8 type;
+    be u32 unk0;
+    be u8 blob_size [[name("Blob size?")]];
+    be u8 unk1;
+    be u8 blob[blob_size];
+};
+
+struct block_full {
+    block_data block;
+    u8 unk_packets[last_sync_size - sizeof(block)];
 };
 
 u64 block_count = count_blocks();
 
 std::print("Number of blocks: {:}", block_count);
 
-block_data blocks[block_count] @ 0x00;
+block_full blocks[block_count] @ 0x00;
