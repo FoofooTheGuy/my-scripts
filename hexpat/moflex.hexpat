@@ -8,6 +8,9 @@ https://gist.github.com/quatric/3e2f0caa5c22a9a8b24d9cf1ffdfe860#42-3ds--dsi--mo
  https://github.com/brainphreak/clownsec-moflex-encoder/blob/10a3644/docs/moflex-format.md
 */
 
+// TODO: make this actually store the block size from the sync blocks
+#define expected_block_size 2048
+
 /*
  to check time stamp hash
  addr: address to start at (Timestamp)
@@ -27,40 +30,6 @@ fn sync_check(u64 addr) {
 };
 
 /*
- get the actual size of the given packet
- this only works if the blocks are properly aligned
- addr: address to start at
- return: size of packet
-*/
-/*fn measure_packets(u64 addr) {
-    u64 start = addr;
-    u64 size = 0;
-    std::print("{:X}", addr);
-    while(1) {
-        if(addr >= std::mem::size()) { // fail safe in case you make it too big
-            break;
-        }
-        //std::print("a {:X}", addr);
-        if((addr % (2048)) == 0) {
-            if((std::mem::read_unsigned(addr, 2, std::mem::Endian::Big) == 0x4C32)) {
-                break;
-            }
-        }
-        // add but also align it
-        if(addr < ((start + 0x10) & 0xFFFFFFFFFFF0)) {
-            addr += 1;
-            size += 1;
-        }
-        else {
-            addr += 0x10;
-            size += 0x10;
-        }
-    }
-    //std::print("a {:X}", addr);
-    return size;
-};*/
-
-/*
  iterate through the file to count blocks
  this only works if the blocks are properly aligned
  return: number of blocks
@@ -75,7 +44,7 @@ fn count_blocks() {
         }
         //std::print("a {:X}", addr);
         count += 1;
-        addr += 2048;
+        addr += expected_block_size;
     }
     return count;
 };
@@ -133,7 +102,7 @@ struct sync_block_header {
     be type::Hex<u16> Magic [[comment("be16 0x4C32")]];
     be type::Hex<u16> ts_hash [[name("Timestamp hash"), comment("be16 CRC-16 with polynomial 0x0001 (a bare shift/feedback LFSR), init 0, XOR-out 0xAAAA")]];
     be u64 Timestamp [[comment(std::format("be64 timestamp(microseconds)\nHash: 0x{:X}", sync_check($)))]];
-    be u16 block_size [[name("Block length"), comment("2047 (0x7FF)")]];
+    be u16 block_size [[name("Block length"), comment(std::format("{:d} (0x{:X})", expected_block_size - 1, expected_block_size - 1))]];
     descriptor descriptors[while($[$] != type::end_of_list)];
     descriptor end_of_list_descriptor [[comment("The descriptor marking the list's end")]];
     be u8 flags;
@@ -148,13 +117,13 @@ struct block_header {
     }
 };
 
-struct sync_block {
+struct block {
     block_header header;
-    u8 packets[2048 - sizeof(header)];
+    u8 packets[expected_block_size - sizeof(header)];
 };
 
 u64 block_count = count_blocks();
 
 std::print("Number of blocks: {:}", block_count);
 
-sync_block block[block_count] @ 0x00;
+block blocks[block_count] @ 0x00;
