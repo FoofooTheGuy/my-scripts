@@ -110,21 +110,19 @@ struct sync_block_header {
 
 struct block_header {
     if((std::mem::read_unsigned($, 2, std::mem::Endian::Big) == 0x4C32)) {
-        sync_block_header sync_block_head;
+        sync_block_header sync_block_head [[name("Sync block header")]];
         last_sync_size = (sync_block_head.block_size + 1);
     }
-    else {
-        be u8 flags; // Non-sync block
-    }
+    be u8 flags [[comment("Seems to increase by 4 at each sync block")]];
 };
 
-struct block {
-    block_header header;
-    u8 packets[last_sync_size - sizeof(header)];
+struct block_data {
+    block_header block;
+    u8 packets[last_sync_size - sizeof(block)];
 };
 
 u64 block_count = count_blocks();
 
 std::print("Number of blocks: {:}", block_count);
 
-block blocks[block_count] @ 0x00;
+block_data blocks[block_count] @ 0x00;
