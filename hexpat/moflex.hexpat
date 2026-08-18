@@ -6,11 +6,10 @@ import std.io;
 
 /* heavily based on existing documenation:
 https://gist.github.com/quatric/3e2f0caa5c22a9a8b24d9cf1ffdfe860#42-3ds--dsi--moflex
- https://github.com/brainphreak/clownsec-moflex-encoder/blob/10a3644/docs/moflex-format.md
+https://github.com/brainphreak/clownsec-moflex-encoder/blob/10a3644/docs/moflex-format.md
 */
 
-// TODO: make this actually store the block size from the sync blocks
-#define expected_block_size 2048
+u16 last_sync_size = 0;
 
 /*
  to check time stamp hash
@@ -45,7 +44,7 @@ fn count_blocks() {
         }
         //std::print("a {:X}", addr);
         count += 1;
-        addr += expected_block_size;
+        addr += 2048;
     }
     return count;
 };
@@ -103,7 +102,7 @@ struct sync_block_header {
     be type::Hex<u16> Magic [[comment("be16 0x4C32")]];
     be type::Hex<u16> ts_hash [[name("Timestamp hash"), comment("be16 CRC-16 with polynomial 0x0001 (a bare shift/feedback LFSR), init 0, XOR-out 0xAAAA")]];
     be u64 Timestamp [[comment(std::format("be64 timestamp(microseconds)\nHash: 0x{:X}", sync_check($)))]];
-    be u16 block_size [[name("Block length"), comment(std::format("{:d} (0x{:X})", expected_block_size - 1, expected_block_size - 1))]];
+    be u16 block_size [[name("Block length"), comment("Normally 2047 (0x7FF)")]];
     descriptor descriptors[while($[$] != type::end_of_list)];
     descriptor end_of_list_descriptor [[comment("The descriptor marking the list's end")]];
     be u8 flags;
@@ -112,16 +111,16 @@ struct sync_block_header {
 struct block_header {
     if((std::mem::read_unsigned($, 2, std::mem::Endian::Big) == 0x4C32)) {
         sync_block_header sync_block_head;
-        //expected_block_size = (sync_block_header.block_size + 1);
+        last_sync_size = (sync_block_head.block_size + 1);
     }
     else {
-        be u8 flags; // Non-sync block, as per 
+        be u8 flags; // Non-sync block
     }
 };
 
 struct block {
     block_header header;
-    u8 packets[expected_block_size - sizeof(header)];
+    u8 packets[last_sync_size - sizeof(header)];
 };
 
 u64 block_count = count_blocks();
