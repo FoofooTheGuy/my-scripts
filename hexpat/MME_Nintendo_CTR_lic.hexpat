@@ -93,8 +93,8 @@ fn base64_decode(str encoded_string) {
             // copy of find_char because i think it's legit bugged
             //char_array_4[j] = find_char(base64_chars, char_array_4[j]);
             for (u64 k = 0, k < std::string::length(base64_chars), k=k+1) {
-                if(std::string::at(base64_chars, i) == char_array_4[j]) {
-                    place = i;
+                if(std::string::at(base64_chars, k) == char_array_4[j]) {
+                    place = k;
                 }
             }
             char_array_4[j] = place;
