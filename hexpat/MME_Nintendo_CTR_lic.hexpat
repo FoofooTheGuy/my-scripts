@@ -75,7 +75,7 @@ fn base64_decode(str encoded_string) {
             char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
             
             for (i = 0, i < 3, i=i+1) {
-                ret = std::format("{}{:02X}", ret, char_array_3[i]);
+                ret = std::format("{}{:02X} ", ret, char_array_3[i]);
             }
             i = 0;
         }
@@ -105,7 +105,7 @@ fn base64_decode(str encoded_string) {
         char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
         
         for (j = 0, (j < i - 1), j=j+1) {
-            ret = std::format("{}{:02X}", ret, char_array_3[j]);
+            ret = std::format("{}{:02X} ", ret, char_array_3[j]);
         }
     }
     
@@ -115,7 +115,7 @@ fn base64_decode(str encoded_string) {
 struct lic {
     char magic[8] [[name("Magic"), comment("Nintendo")]];
     u8 unk0[0x78];
-    std::string::NullString key [[name("Timestamp"), comment("Seems to be base64. Also encrypted")]];
+    std::string::NullString key [[name("Timestamp"), comment("Seems to be base64 as it still works if you append non-base64 characters. Also encrypted?")]];
     u8 unk1[std::mem::size() - $];
 };
 
