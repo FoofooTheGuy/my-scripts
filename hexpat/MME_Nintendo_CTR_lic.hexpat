@@ -105,7 +105,7 @@ fn base64_decode(str encoded_string) {
         char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
         
         for (j = 0, (j < i - 1), j=j+1) {
-            ret = std::format("{}{:02X}", ret, char_array_3[i]);
+            ret = std::format("{}{:02X}", ret, char_array_3[j]);
         }
     }
     
