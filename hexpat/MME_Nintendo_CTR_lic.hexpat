@@ -113,8 +113,8 @@ fn base64_decode(str encoded_string) {
 };
 
 struct lic {
-    char magic[8] [[name("Magic"), comment("Nintendo")]];
-    u8 unk0[0x78];
+    std::string::NullString magic [[name("Magic"), comment("Nintendo")]];
+    u8 unk0[(0x10 - $) + 0x70];
     std::string::NullString key [[name("Timestamp"), comment("Seems to be base64 as it still works if you append non-base64 characters. Also encrypted?")]];
     u8 unk1[std::mem::size() - $];
 };
