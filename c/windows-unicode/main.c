@@ -6,7 +6,7 @@ int wmain() {
 	char* name = "あ.txt";
 	
 	int reserveSize = MultiByteToWideChar(CP_UTF8, 0, name, strlen(name) + 1, NULL, 0);
-	wchar_t* longg = malloc(reserveSize);
+	wchar_t* longg = malloc(reserveSize * sizeof(wchar_t));
 	
 	MultiByteToWideChar(CP_UTF8, 0, name, strlen(name) + 1, longg, reserveSize);
 
@@ -23,5 +23,6 @@ int wmain() {
 		puts("failed to open file");
 		return 1;
 	}
+	free(longg);
 	return 0;
 }
