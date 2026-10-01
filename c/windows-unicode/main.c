@@ -47,17 +47,17 @@ int wmain() {
 	if (hFind == INVALID_HANDLE_VALUE)
 	{
 		printf ("FindFirstFile failed (%d)\n", GetLastError());
+		free(wc);
 		return 5;
 	}
+	free(wc);
 	
 	//printf("The first file found is %ls\n", FindFileData.cFileName);
 	puts("read it back");
 	for(int i = 0; i < wcslen(FindFileData.cFileName) + 1; i++) {
 		printf("%04X\n", FindFileData.cFileName[i]);
 	}
-	
-	free(wc);
-	
+		
 	int mb_size = WideCharToMultiByte(CP_UTF8, 0, FindFileData.cFileName, wcslen(FindFileData.cFileName) + 1, NULL, 0, NULL, NULL);
 	if(!mb_size) {
 		return 6;
