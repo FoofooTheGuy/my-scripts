@@ -68,6 +68,7 @@ int wmain() {
 	}
 	ret = WideCharToMultiByte(CP_UTF8, 0, FindFileData.cFileName, wcslen(FindFileData.cFileName) + 1, mb, mb_size, NULL, NULL);
 	if(!ret) {
+		free(mb);
 		return 8;
 	}
 	
